@@ -10,3 +10,6 @@ class Note(models.Model):
     
     def __str__(self):
         return self.title
+    
+    
+    # now a serializer is created for this , since this is an api that will communicate with react app 
