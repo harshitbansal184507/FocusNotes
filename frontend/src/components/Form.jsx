@@ -56,7 +56,7 @@ function Form({route , method}){
 
         <input
         className="form-input"
-        type="text"
+        type="password"
         value={password}
         onChange={(e)=>setPassword(e.target.value)}
         placeholder="Password" />
