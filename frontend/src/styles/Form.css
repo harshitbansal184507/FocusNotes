@@ -1,0 +1,90 @@
+
+.form-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 2.5rem;
+  background: #1e1e2f;
+  border-radius: 1rem;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.6rem;
+  border: none;
+  outline: none;
+  background: #2e2e3f;
+  color: #ffffff;
+  transition: background 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: #aaa;
+}
+
+.form-input:focus {
+  background: #3c3c4f;
+  box-shadow: 0 0 0 2px #4c9aff;
+}
+
+.form-button {
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #4c9aff, #2563eb);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.form-button:hover {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  transform: scale(1.02);
+}
+
+.form-button:active {
+  transform: scale(0.98);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .form-container {
+    margin: 40px 20px;
+    padding: 2rem;
+  }
+
+  .form-title {
+    font-size: 1.6rem;
+  }
+
+  .form-input,
+  .form-button {
+    font-size: 1rem;
+  }
+}
