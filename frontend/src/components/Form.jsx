@@ -21,7 +21,7 @@ function Form({route , method}){
     try{
         const res = await api.post(route, {
             username,
-            password
+            password , 
         })
 
         if(method === "login"){
@@ -39,6 +39,8 @@ function Form({route , method}){
     catch(err){
         console.error("Error during form submission:", err)
         alert(err)
+        console.log(err.response?.data);
+
         
     }
     finally{
