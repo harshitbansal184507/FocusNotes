@@ -26,8 +26,12 @@ function Form({route , method}){
 
         if(method === "login"){
             // if we are logging in then we will get access token and refresh token
-            localStorage.setItem(ACCESS_TOKEN, res.data.accessToken)
-            localStorage.setItem(REFRESH_TOKEN, res.data.refreshToken)
+            localStorage.setItem(ACCESS_TOKEN, res.data.access)
+            localStorage.setItem(REFRESH_TOKEN, res.data.refresh)
+            console.log("🧩 Token saved to localStorage:");
+            console.log("accessToken", res.data.access);
+            console.log("refreshToken", res.data.refresh);
+
             navigate("/") 
 
         }
