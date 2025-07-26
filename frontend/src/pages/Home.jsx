@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import api from "../api";
+import Note from "../components/Note";
 
 function Home() {
   const [notes, setNotes] = useState([]);
@@ -22,13 +23,14 @@ function Home() {
 
   const deleteNote = async (id) => {
     api
-      .delete(`/api/notes/${id}/`)
+      .delete(`/api/notes/delete/${id}/`)
       .then((res) => {
-        if (res.status === 204) alert("Note deleted successfully");
-        else alert("Error deleting note");
+        if (res.status === 204) {
+          alert("Note deleted successfully");
+          getNotes();
+        } else alert("Error deleting note");
       })
       .catch((err) => alert(err));
-    getNotes();
   };
 
   const createNote = async (e) => {
@@ -52,6 +54,9 @@ function Home() {
     <div>
       <div>
         <h2> Notes </h2>
+        {notes.map((note) => (
+          <Note note={note} onDelete={deleteNote} key={note.id} />
+        ))}
       </div>
       <h2>Create Note</h2>
       <form onSubmit={createNote}>
