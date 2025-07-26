@@ -1,0 +1,164 @@
+/* Home.css */
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9fb;
+  margin: 0;
+  padding: 0;
+}
+
+.home-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  animation: fadeInDown 1s ease;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 50px;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Note card styling (you can override Note.css if needed) */
+.note-container {
+  background-color: #fff;
+  border-left: 6px solid #0077ff;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.note-container:hover {
+  transform: translateY(-5px);
+}
+
+.note-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0077ff;
+}
+
+.note-content {
+  margin: 10px 0;
+  color: #444;
+}
+
+.note-date {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.delete-button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff4d4f;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-button:hover {
+  background-color: #d9363e;
+}
+
+/* Form styling */
+.form-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 1s ease;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.note-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.note-form input,
+.note-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+.note-form input:focus,
+.note-form textarea:focus {
+  outline: none;
+  border-color: #0077ff;
+}
+
+.form-button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form-button:hover {
+  background-color: #005fcc;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

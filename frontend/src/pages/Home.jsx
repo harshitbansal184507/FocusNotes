@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../api";
 import Note from "../components/Note";
+import "../styles/Home.css";
 
 function Home() {
   const [notes, setNotes] = useState([]);
@@ -43,6 +44,8 @@ function Home() {
       .then((res) => {
         if (res.status === 201) {
           alert("Note created successfully");
+          setTitle("");
+          setContent("");
           getNotes();
         } else {
           alert("Error creating note");
@@ -51,41 +54,44 @@ function Home() {
   };
 
   return (
-    <div>
-      <div>
-        <h2> Notes </h2>
+    <div className="home-container">
+      <div className="header">
+        <h1>📝 My Notes</h1>
+      </div>
+
+      <div className="notes-grid">
         {notes.map((note) => (
           <Note note={note} onDelete={deleteNote} key={note.id} />
         ))}
       </div>
-      <h2>Create Note</h2>
-      <form onSubmit={createNote}>
-        <label htmlFor="title">Title :</label>
-        <br />
-        <input
-          type="text"
-          id="title"
-          name="title"
-          value={title}
-          required
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <br />
 
-        <label htmlFor="content">Content :</label>
-        <br />
-        <textarea
-          id="content"
-          name="content"
-          value={content}
-          required
-          onChange={(e) => setContent(e.target.value)}
-        ></textarea>
-        <br />
-        <button type="submit" value="Submit" className="form-button">
-          Create Note
-        </button>
-      </form>
+      <div className="form-container">
+        <h2>Create a New Note</h2>
+        <form onSubmit={createNote} className="note-form">
+          <label htmlFor="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={title}
+            required
+            onChange={(e) => setTitle(e.target.value)}
+          />
+
+          <label htmlFor="content">Content:</label>
+          <textarea
+            id="content"
+            name="content"
+            value={content}
+            required
+            onChange={(e) => setContent(e.target.value)}
+          ></textarea>
+
+          <button type="submit" className="form-button">
+            ➕ Create Note
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
