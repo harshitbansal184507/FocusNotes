@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import api from "../api";
 import Note from "../components/Note";
 import "../styles/Home.css";
+import Header from "../components/Header";
+import { USERNAME } from "../constants";
 
 function Home() {
   const [notes, setNotes] = useState([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
+  const user = localStorage.getItem(USERNAME);
 
   const getNotes = async () => {
     try {
@@ -55,42 +59,48 @@ function Home() {
 
   return (
     <div className="home-container">
-      <div className="header">
-        <h1>📝 My Notes</h1>
-      </div>
+      <Header username={user} />
 
-      <div className="notes-grid">
-        {notes.map((note) => (
-          <Note note={note} onDelete={deleteNote} key={note.id} />
-        ))}
-      </div>
+      <div className="main-grid">
+        {/* Notes grid, 2/3 width */}
+        <div className="notes-area">
+          <div className="notes-grid">
+            {notes.map((note) => (
+              <Note note={note} onDelete={deleteNote} key={note.id} />
+            ))}
+          </div>
+        </div>
 
-      <div className="form-container">
-        <h2>Create a New Note</h2>
-        <form onSubmit={createNote} className="note-form">
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={title}
-            required
-            onChange={(e) => setTitle(e.target.value)}
-          />
+        {/* Form, 1/3 width */}
+        <div className="form-area">
+          <div className="form-container">
+            <h2>Create a New Note</h2>
+            <form onSubmit={createNote} className="note-form">
+              <label htmlFor="title">Title:</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                value={title}
+                required
+                onChange={(e) => setTitle(e.target.value)}
+              />
 
-          <label htmlFor="content">Content:</label>
-          <textarea
-            id="content"
-            name="content"
-            value={content}
-            required
-            onChange={(e) => setContent(e.target.value)}
-          ></textarea>
+              <label htmlFor="content">Content:</label>
+              <textarea
+                id="content"
+                name="content"
+                value={content}
+                required
+                onChange={(e) => setContent(e.target.value)}
+              ></textarea>
 
-          <button type="submit" className="form-button">
-            ➕ Create Note
-          </button>
-        </form>
+              <button type="submit" className="form-button">
+                ➕ Create Note
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );
