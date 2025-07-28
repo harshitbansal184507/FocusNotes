@@ -7,36 +7,64 @@ function Login() {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <div className="header-logo">
-        <img
-          style={{ marginLeft: "20px", marginTop: "90px" }}
-          src={logo}
-          alt="Logo"
-        />
-      </div>
-      <button
-        type="button"
-        onClick={() => navigate("/register")}
+    <div
+      style={{
+        minHeight: "100vh",
+        padding: "20px",
+        boxSizing: "border-box",
+        overflowX: "hidden",
+      }}
+    >
+      {/* Header Row: Logo Left, Button Right */}
+      <div
         style={{
-          marginTop: "20px",
-          marginLeft: "1100px",
-
-          backgroundColor: "#0077ff",
-          color: "white",
-          border: "none",
-          padding: "10px 24px",
-          borderRadius: "8px",
-          cursor: "pointer",
-          fontSize: "1rem",
-          alignContent: "center",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: "100%",
+          maxWidth: "1000px",
+          margin: "0 auto",
         }}
       >
-        Register
-      </button>
-      <Form route="/api/token/" method="login" />
+        <img
+          src={logo}
+          alt="Logo"
+          style={{
+            maxWidth: "150px",
+            width: "100%",
+            height: "auto",
+          }}
+        />
 
-      <div style={{ marginTop: "20px", textAlign: "center" }}></div>
+        <button
+          type="button"
+          onClick={() => navigate("/register")}
+          style={{
+            backgroundColor: "#0077ff",
+            color: "white",
+            border: "none",
+            padding: "10px 24px",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontSize: "1rem",
+          }}
+        >
+          Register
+        </button>
+      </div>
+
+      {/* Centered Form Below */}
+      <div
+        style={{
+          marginTop: "40px",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <div style={{ width: "100%", maxWidth: "400px" }}>
+          <Form route="/api/token/" method="login" />
+        </div>
+      </div>
     </div>
   );
 }
