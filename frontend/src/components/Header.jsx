@@ -17,7 +17,6 @@ function Header({ username }) {
       <div className="header-content">
         <div className="header-logo">
           <img src={logo} alt="Logo" />
-          {/* <span className="brand-text">MyApp</span> */}
         </div>
         <div className="header-action">
           <span className="header-username">

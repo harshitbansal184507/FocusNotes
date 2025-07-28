@@ -178,6 +178,7 @@ body {
 .form-area .form-container {
   max-width: 340px;
   margin-left: auto;
+  margin-top: auto;
 }
 
 /* Make grid stack nicely on small screens */

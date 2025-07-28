@@ -1,12 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "../components/Form.jsx";
+import logo from "../static/logo.png";
 
 function Login() {
   const navigate = useNavigate();
 
   return (
     <div>
+      <div className="header-logo">
+        <img
+          style={{ marginLeft: "20px", marginTop: "90px" }}
+          src={logo}
+          alt="Logo"
+        />
+      </div>
       <button
         type="button"
         onClick={() => navigate("/register")}
