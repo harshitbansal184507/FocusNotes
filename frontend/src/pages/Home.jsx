@@ -3,14 +3,15 @@ import api from "../api";
 import Note from "../components/Note";
 import "../styles/Home.css";
 import Header from "../components/Header";
-import { USERNAME } from "../constants";
+import { FIRST_NAME } from "../constants";
 
 function Home() {
   const [notes, setNotes] = useState([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const user = localStorage.getItem(USERNAME);
+  const user = localStorage.getItem(FIRST_NAME) || "User";
+  console.log("Retrieved firstName from localStorage:", user);
 
   const getNotes = async () => {
     try {
@@ -59,7 +60,7 @@ function Home() {
 
   return (
     <div className="home-container">
-      <Header username={user} />
+      <Header firstName={user} />
 
       <div className="main-grid">
         {/* Notes grid, 2/3 width */}
