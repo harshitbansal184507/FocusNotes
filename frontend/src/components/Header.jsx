@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "../static/logo.png";
 import "../styles/Header.css"; // Assuming you have a CSS file for styling
 
-function Header({ username }) {
+function Header({ firstName }) {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -20,7 +20,7 @@ function Header({ username }) {
         </div>
         <div className="header-action">
           <span className="header-username">
-            Hi, <b>{username}</b>
+            Hi, <b>{firstName}</b>
           </span>
           <button onClick={handleLogout} className="header-logout-btn">
             Logout
