@@ -32,7 +32,6 @@ function Form({ route, method }) {
       }
 
       const res = await api.post(route, data);
-      const res2 = await api.get("/api/user/info/");
 
       console.log("Full response:", res);
 
@@ -40,7 +39,11 @@ function Form({ route, method }) {
         // if we are logging in then we will get access token and refresh token
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+
+        const res2 = await api.get("/api/user/info/");
+
         localStorage.setItem(FIRST_NAME, res2.data.first_name);
+
         console.log("🧩 Token saved to localStorage:");
         console.log("accessToken", res.data.access);
         console.log("refreshToken", res.data.refresh);
