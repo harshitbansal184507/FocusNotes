@@ -1,6 +1,10 @@
-# FocusNotes
+FocusNotes is a modern note-taking web application designed to help users stay organized and focused. Built using Django for a powerful backend, React for a seamless frontend experience, and Tailwind CSS for a clean, responsive design, FocusNotes allows users to easily create, edit, and delete notes in real time.
 
+With JWT Authentication integrated, every user’s data remains secure and private — ensuring a safe environment to manage ideas, tasks, or personal reminders.
 
+Whether you’re jotting down quick thoughts or managing daily plans, FocusNotes provides a simple yet efficient platform to keep your notes structured and accessible anytime.
+
+File Structure 
 ```
 FocusNotes
 ├─ Backend
